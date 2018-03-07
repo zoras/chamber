@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'yaml'
-require 'hashie/mash'
+require 'chamber/hashie_mash'
 
 require 'chamber/errors/environment_conversion'
 
@@ -120,7 +120,7 @@ class   EnvironmentFilter
   private
 
   def with_environment(settings, parent_keys, hash_block, value_block)
-    environment_hash = Hashie::Mash.new
+    environment_hash = HashieMash.new
 
     settings.each_pair do |key, value|
       environment_key  = key.to_s.gsub(secure_key_token, '')

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'openssl'
-require 'hashie/mash'
+require 'chamber/hashie_mash'
 require 'yaml'
 require 'chamber/encryption_methods/public_key'
 require 'chamber/encryption_methods/ssl'
@@ -30,7 +30,7 @@ class     EncryptionFilter
   protected
 
   def execute(raw_data = data, namespace = nil)
-    raw_data.each_with_object(Hashie::Mash.new) do |(key, value), settings|
+    raw_data.each_with_object(HashieMash.new) do |(key, value), settings|
       settings[key] = if value.respond_to? :each_pair
                         execute(value, namespace || key)
                       elsif key.match(secure_key_token)

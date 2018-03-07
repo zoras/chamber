@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'hashie/mash'
+require 'chamber/hashie_mash'
 
 module  Chamber
 module  Filters
@@ -13,14 +13,14 @@ class   SecureFilter
                 :secure_key_token
 
   def initialize(options = {})
-    self.data             = Hashie::Mash.new(options.fetch(:data))
+    self.data             = HashieMash.new(options.fetch(:data))
     self.secure_key_token = /\A#{Regexp.escape(options.fetch(:secure_key_prefix))}/
   end
 
   protected
 
   def execute(raw_data = data)
-    settings = Hashie::Mash.new
+    settings = HashieMash.new
 
     raw_data.each_pair do |key, value|
       secure_value  = if value.respond_to? :each_pair
