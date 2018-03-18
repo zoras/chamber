@@ -131,6 +131,7 @@ target
 .secrets
 .shellwreck.sh
 .terraform
+.tern-port
 Gemfile.local
 Procfile.local
 atlassian-ide-plugin.xml

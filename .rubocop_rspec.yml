@@ -23,8 +23,8 @@ RSpec/EmptyExampleGroup:
   CustomIncludeMethods:           []
 
 RSpec/ExampleLength:
-  Enabled:                        true
-  Max:                            30
+  Enabled:                        false
+  Max:                            50
 
 RSpec/ExampleWording:
   Enabled:                        true
